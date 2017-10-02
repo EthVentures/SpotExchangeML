@@ -19,17 +19,17 @@ def feature_extraction(json_data):
             amenities = event['purchase_options'][0]['amenities']
             for item in amenities:
                 if item['name'] == 'Accessible':
-                    dict0['accessible'] = item['enabled']
+                    dict0['accessible'] = int(item['enabled'])
                 if item['name'] == 'Valet':
-                    dict0['valet'] = item['enabled']
+                    dict0['valet'] = int(item['enabled'])
                 if item['name'] == 'Security':
-                    dict0['security'] = item['enabled']
+                    dict0['security'] = int(item['enabled'])
                 if item['name'] == 'Restrooms':
-                    dict0['restrooms'] = item['enabled']
+                    dict0['restrooms'] = int(item['enabled'])
                 if item['name'] == 'Printed Pass':
-                    dict0['printed_pass'] = item['enabled']
+                    dict0['printed_pass'] = int(item['enabled'])
                 if item['name'] == 'Reentry Allowed':
-                    dict0['reentry_allowed'] = item['enabled']
+                    dict0['reentry_allowed'] = int(item['enabled'])
             # Checks if it is accessible, if there is valet, security, restrooms, printed pass, re-entry allowed
             for key in dict0:
                 frame.loc[i,key] = dict0[key]
