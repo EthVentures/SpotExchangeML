@@ -3,7 +3,6 @@ from pandas import DataFrame
 def feature_extraction(json_data):
     columns = ['id','name','lat','lon','coordinates','address','city','seller_id','price', 'accessible', 'valet', 'security', 'restrooms', 'printed_pass', 'reentry_allowed']
     frame = DataFrame(columns=columns)
-
     for i, event in enumerate(json_data):
         try:
             dict0={}
