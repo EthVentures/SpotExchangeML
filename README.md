@@ -9,6 +9,8 @@ Welcome to the [Spot Exchange](https://thespot.exchange), a submission to the [U
 
 Our project leverages Watson Machine Learning technology to design, build, and deploy custom, online machine learning models. For our Phase II submission, we designed, built, and deployed a machine learning model for one specific business problem that we identified in the marketplace. We also implemented the solution in practice in The Spot Exchange.
 
+For more details about the Phase II submission, [click here](https://goo.gl/n84gDD).
+
 ## The Business Problem
 
 In a traditional marketplace for renting physical parking spaces, sellers of parking spaces have little direction about how to set prices. In addition, buyers have little direction about whether they are paying a reasonable price for parking. As such, on the seller side, the decision to price parking assets is often made ad hoc without empirical support. On the buyer side, the decision about where to park is influenced by price, but in a suboptimal way.  
@@ -27,7 +29,7 @@ From this specification, it’s clear that our objective is to estimate a real-v
 
 The nature of our problem lends itself well to an instance-based machine learning solution. Unlike machine learning methods that estimate a generalized target function when training examples are provided, instance-based machine learning methods postpone estimating the target function until specific query instances are available and ready to be estimated. Since the target function is estimated at query time, it is estimated locally for each query instance. In other words, we’re building different approximations of the target function for each query instance. This approach is useful in practice when it’s important to capture local dynamics within irregular decision boundaries, which we find to be true in the parking reservation market.
 
-Within this framework, we specifically leverage k-Nearest-Neighbor regression to estimate the target function. In general, k-Nearest-Neighbor algorithms leverage measures of proximity to identify and retrieve k “neighboring” cases. The k neighboring cases, those that are closest in proximity to our query instance (e.g. in its neighborhood) and thus most “similar” to the query instance, are used to estimate the target function. We leverage the haversine formula to calculate the distance between two instances given by their latitude and longitude. Once the most similar instances have been retrieved, we use local estimation to determine our target.
+Within this framework, we specifically leverage _k-Nearest-Neighbor regression_ to estimate the target function. In general, _k-Nearest-Neighbor_ algorithms leverage measures of proximity to identify and retrieve k “neighboring” cases. The k neighboring cases, those that are closest in proximity to our query instance (e.g. in its neighborhood) and thus most “similar” to the query instance, are used to estimate the target function. We leverage the haversine formula to calculate the distance between two instances given by their latitude and longitude. Once the most similar instances have been retrieved, we use local estimation to determine our target.
 
 ## Attribution
 For sample data, we have preloaded our models with real parking data from the [Parkwhiz API](www.parkwhiz.com/developers/), with their prior permission.
